@@ -1,39 +1,92 @@
-# Smart Pantry Manager
+# Mobile-Application-Development-700-Assignment
+The assignment is a designing and developing a Smart Pantry Manager application that helps user manage ingredients that are available to them to reduce the waste of food by suggesting what they can make using available ingredients.
 
-Smart Pantry Manager is an Android application scaffold for a pantry and recipe
-management assignment. The pantry, recipe, persistence, and settings features
-have not been implemented yet. The current app contains only a launcher screen
-so the project has a valid starting point for development.
+# Features
+- Allow users to add, view, edit, and delete ingredients.
+- Store a collection of recipes and compare required ingredients to user's current pantry.
+- Strict recipe-matching system - recipe suggested only when user has every ingredient.
 
-## Requirements
+# Built with:
+- Programming Language: Java
+- Development Environment: Android Studio
+- Database: SQLite (SQLiteOpenHelper)
+- Application Type: Mobile Application (Android)
 
-- Android Studio with a compatible Android Gradle Plugin
-- Android SDK platform 37 and a matching build-tools version
-- JDK 25 (configured through the Gradle daemon JVM criteria)
+# Activities
+1. MainActivity.java — Pantry List screen.
+2. AddEditIngredientActivity.java — Add and Edit Ingredient screen.
+3. SuggestedRecipesActivity.java — Suggested Recipes screen.
+4. RecipeDetailActivity.java — Recipe Detail screen.
+5. SettingsActivity.java — Settings screen.
+(Each activity has it's own corresponding XML layout file)
 
-Open the project in Android Studio and allow Gradle sync to finish, or build
-from the project root with:
+# Business Logic
+1. PantryManager.java	Handles pantry-related operations, including adding, editing, and deleting ingredients.
+2. RecipeMatcher.java	Determines which recipes can be prepared using the current pantry.
+3. IngredientNormalizer.java	Standardizes ingredient names and supported units to handle simple variations.
+4. ValidationHelper.java	Checks user input before it is saved.
 
-```shell
-./gradlew :app:assembleDebug
-```
+# Data
+1. DatabaseHelper.java	Creates and manages the SQLite database and its tables.
+2. PantryRepository.java	Provides methods for creating, reading, updating, and deleting pantry records.
+3. RecipeRepository.java	Retrieves recipes, ingredients, and preparation instructions from the database.
+4. SettingsRepository.java	Stores and retrieves application preferences.
 
-## Planned features
+# Project structure
 
-- Add, view, edit, and delete pantry ingredients.
-- Store recipes and suggest only recipes for which every required ingredient
-  is available.
-- Normalize ingredient names and supported units.
-- Validate ingredient input and persist application settings.
-
-## Project packages
-
-- `com.example.smartpantrymanager`: Android activities
-- `com.example.adapters`: list adapters
-- `com.example.database`: SQLite helpers and repositories
-- `com.example.logic`: pantry and recipe business logic
-- `com.example.models`: application data models
-
-The unimplemented source files and placeholder layouts are reserved for
-planned features; add implementations and tests as those features are
-developed.
+```text
+SmartPantryManager/
+│
+└── app/
+    └── src/
+        └── main/
+            ├── java/
+            │   └── com/
+            │       └── example/
+            │           └── smartpantrymanager/
+            │               ├── MainActivity.java
+            │               ├── AddEditIngredientActivity.java
+            │               ├── SuggestedRecipesActivity.java
+            │               ├── RecipeDetailActivity.java
+            │               ├── SettingsActivity.java
+            │               │
+            │               ├── models/
+            │               │   ├── PantryItem.java
+            │               │   ├── Recipe.java
+            │               │   ├── RecipeIngredient.java
+            │               │   └── AppSettings.java
+            │               │
+            │               ├── database/
+            │               │   ├── DatabaseHelper.java
+            │               │   ├── PantryRepository.java
+            │               │   ├── RecipeRepository.java
+            │               │   └── SettingsRepository.java
+            │               │
+            │               ├── logic/
+            │               │   ├── PantryManager.java
+            │               │   ├── RecipeMatcher.java
+            │               │   ├── IngredientNormalizer.java
+            │               │   └── ValidationHelper.java
+            │               │
+            │               └── adapters/
+            │                   ├── PantryAdapter.java
+            │                   └── RecipeAdapter.java
+            │
+            ├── res/
+            │   ├── layout/
+            │   │   ├── activity_main.xml
+            │   │   ├── activity_add_edit_ingredient.xml
+            │   │   ├── activity_suggested_recipes.xml
+            │   │   ├── activity_recipe_detail.xml
+            │   │   ├── activity_settings.xml
+            │   │   ├── item_pantry.xml
+            │   │   └── item_recipe.xml
+            │   │
+            │   ├── drawable/
+            │   ├── menu/
+            │   └── values/
+            │       ├── strings.xml
+            │       ├── colors.xml
+            │       └── themes.xml
+            │
+            └── AndroidManifest.xml
