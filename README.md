@@ -33,57 +33,60 @@ The assignment is a designing and developing a Smart Pantry Manager application 
 4. SettingsRepository.java	Stores and retrieves application preferences.
 
 # Project structure
+
+```text
 SmartPantryManager/
 │
-├── app/
-│   └── src/
-│       └── main/
-│           │
-│           ├── java/com/example/smartpantrymanager/
-│           │   │
-│           │   ├── MainActivity.java
-│           │   ├── AddEditIngredientActivity.java
-│           │   ├── SuggestedRecipesActivity.java
-│           │   ├── RecipeDetailActivity.java
-│           │   ├── SettingsActivity.java
-│           │   │
-│           │   ├── models/
-│           │   │   ├── PantryItem.java
-│           │   │   ├── Recipe.java
-│           │   │   ├── RecipeIngredient.java
-│           │   │   └── AppSettings.java
-│           │   │
-│           │   ├── database/
-│           │   │   ├── DatabaseHelper.java
-│           │   │   ├── PantryRepository.java
-│           │   │   ├── RecipeRepository.java
-│           │   │   └── SettingsRepository.java
-│           │   │
-│           │   ├── logic/
-│           │   │   ├── PantryManager.java
-│           │   │   ├── RecipeMatcher.java
-│           │   │   ├── IngredientNormalizer.java
-│           │   │   └── ValidationHelper.java
-│           │   │
-│           │   └── adapters/
-│           │       ├── PantryAdapter.java
-│           │       └── RecipeAdapter.java
-│           │
-│           ├── res/
-│           │   ├── layout/
-│           │   │   ├── activity_main.xml
-│           │   │   ├── activity_add_edit_ingredient.xml
-│           │   │   ├── activity_suggested_recipes.xml
-│           │   │   ├── activity_recipe_detail.xml
-│           │   │   ├── activity_settings.xml
-│           │   │   ├── item_pantry.xml
-│           │   │   └── item_recipe.xml
-│           │   │
-│           │   ├── drawable/
-│           │   ├── menu/
-│           │   └── values/
-│           │       ├── strings.xml
-│           │       ├── colors.xml
-│           │       └── themes.xml
-│           │
-│           └── AndroidManifest.xml
+└── app/
+    └── src/
+        └── main/
+            ├── java/
+            │   └── com/
+            │       └── example/
+            │           └── smartpantrymanager/
+            │               ├── MainActivity.java
+            │               ├── AddEditIngredientActivity.java
+            │               ├── SuggestedRecipesActivity.java
+            │               ├── RecipeDetailActivity.java
+            │               ├── SettingsActivity.java
+            │               │
+            │               ├── models/
+            │               │   ├── PantryItem.java
+            │               │   ├── Recipe.java
+            │               │   ├── RecipeIngredient.java
+            │               │   └── AppSettings.java
+            │               │
+            │               ├── database/
+            │               │   ├── DatabaseHelper.java
+            │               │   ├── PantryRepository.java
+            │               │   ├── RecipeRepository.java
+            │               │   └── SettingsRepository.java
+            │               │
+            │               ├── logic/
+            │               │   ├── PantryManager.java
+            │               │   ├── RecipeMatcher.java
+            │               │   ├── IngredientNormalizer.java
+            │               │   └── ValidationHelper.java
+            │               │
+            │               └── adapters/
+            │                   ├── PantryAdapter.java
+            │                   └── RecipeAdapter.java
+            │
+            ├── res/
+            │   ├── layout/
+            │   │   ├── activity_main.xml
+            │   │   ├── activity_add_edit_ingredient.xml
+            │   │   ├── activity_suggested_recipes.xml
+            │   │   ├── activity_recipe_detail.xml
+            │   │   ├── activity_settings.xml
+            │   │   ├── item_pantry.xml
+            │   │   └── item_recipe.xml
+            │   │
+            │   ├── drawable/
+            │   ├── menu/
+            │   └── values/
+            │       ├── strings.xml
+            │       ├── colors.xml
+            │       └── themes.xml
+            │
+            └── AndroidManifest.xml
