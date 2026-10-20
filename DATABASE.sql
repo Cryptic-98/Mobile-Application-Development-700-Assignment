@@ -82,4 +82,60 @@ CREATE TABLE IF NOT EXISTS recipes (
         cook_time_minutes IS NULL OR cook_time_minutes >= 0
     ),
     servings INTEGER CHECK (servings IS NULL OR servings > 0),
+    is_active INTEGER NOT NULL DEFAULT 1 CHECK (is_active IN (0, 1)),
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CHECK (length(trim(name)) > 0)
+);
 
+CREATE INDEX IF NOT EXISTS idx_recipes_active_name
+    ON recipes(is_active, name);
+
+CREATE TABLE IF NOT EXISTS recipe_ingredients (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    recipe_id INTEGER NOT NULL,
+    ingredient_id INTEGER NOT NULL,
+    required_quantity REAL NOT NULL CHECK (required_quantity > 0),
+    unit_code TEXT NOT NULL,
+    is_optional INTEGER NOT NULL DEFAULT 0 CHECK (is_optional IN (0, 1)),
+    ingredient_note TEXT,
+    FOREIGN KEY (recipe_id) REFERENCES recipes(id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (ingredient_id) REFERENCES ingredients(id)
+        ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (unit_code) REFERENCES measurement_units(unit_code)
+        ON UPDATE CASCADE ON DELETE RESTRICT,
+    UNIQUE (recipe_id, ingredient_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_recipe_ingredients_recipe_id
+    ON recipe_ingredients(recipe_id);
+
+CREATE INDEX IF NOT EXISTS idx_recipe_ingredients_ingredient_id
+    ON recipe_ingredients(ingredient_id);
+
+CREATE TABLE IF NOT EXISTS recipe_steps (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    recipe_id INTEGER NOT NULL,
+    step_number INTEGER NOT NULL CHECK (step_number > 0),
+    instruction TEXT NOT NULL,
+    FOREIGN KEY (recipe_id) REFERENCES recipes(id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    UNIQUE (recipe_id, step_number),
+    CHECK (length(trim(instruction)) > 0)
+);
+
+CREATE INDEX IF NOT EXISTS idx_recipe_steps_recipe_order
+    ON recipe_steps(recipe_id, step_number);
+
+CREATE TABLE IF NOT EXISTS app_settings (
+    setting_key TEXT PRIMARY KEY,
+    setting_value TEXT NOT NULL,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CHECK (length(trim(setting_key)) > 0)
+);
+
+INSERT OR IGNORE INTO app_settings (setting_key, setting_value)
+VALUES ('theme', 'light');
+
+COMMIT;
