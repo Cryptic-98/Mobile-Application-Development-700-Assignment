@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <TextView
+            style="@style/TextAppearance.SmartPantryManager.Heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/allergies_heading" />
+
+        <TextView
+            style="@style/TextAppearance.SmartPantryManager.Supporting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:text="@string/allergies_help" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_lg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/onboarding_allergy_input"
+                style="@style/TextAppearance.SmartPantryManager.Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background_input"
+                android:hint="@string/allergy_add_hint"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords"
+                android:minHeight="56dp"
+                android:padding="@dimen/space_md" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/onboarding_add_allergy"
+                style="@style/Widget.SmartPantryManager.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_sm"
+                android:text="@string/add_allergy" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/onboarding_allergy_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:textColor="@color/color_error"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/onboarding_allergy_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm"
+            android:background="@drawable/background_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_sm" />
+
+        <RadioGroup
+            android:id="@+id/onboarding_allergy_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_lg"
+            android:background="@drawable/background_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_md">
+
+            <RadioButton
+                android:id="@+id/onboarding_hide_allergy"
+                style="@style/TextAppearance.SmartPantryManager.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/allergy_hide_option" />
+
+            <RadioButton
+                android:id="@+id/onboarding_flag_allergy"
+                style="@style/TextAppearance.SmartPantryManager.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/allergy_flag_option" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>

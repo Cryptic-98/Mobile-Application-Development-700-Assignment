@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="diet_choices">
+        <item>@string/diet_none</item>
+        <item>@string/diet_vegetarian</item>
+        <item>@string/diet_vegan</item>
+        <item>@string/diet_pescatarian</item>
+        <item>@string/diet_gluten_free</item>
+        <item>@string/diet_dairy_free</item>
+        <item>@string/diet_keto</item>
+        <item>@string/diet_custom</item>
+    </string-array>
+</resources>

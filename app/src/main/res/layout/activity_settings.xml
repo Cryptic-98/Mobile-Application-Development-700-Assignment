@@ -1,6 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screen_root"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:text="@string/feature_not_implemented" />
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_padding">
+
+            <LinearLayout
+                android:id="@+id/onboarding_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:contentDescription="@string/brand_logo_description"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/truffle" />
+
+                <TextView
+                    style="@style/TextAppearance.SmartPantryManager.Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/onboarding_title" />
+
+                <TextView
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_sm"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/onboarding_intro" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/settings_brand_header"
+                layout="@layout/view_brand_header" />
+
+            <LinearLayout
+                android:id="@+id/settings_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_lg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/setting"
+                    app:tint="@color/color_primary" />
+
+                <TextView
+                    style="@style/TextAppearance.SmartPantryManager.Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_sm"
+                    android:text="@string/settings" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/TextAppearance.SmartPantryManager.Section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xl"
+                android:text="@string/appearance" />
+
+            <RadioGroup
+                android:id="@+id/theme_choice_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:background="@drawable/background_card"
+                android:orientation="vertical"
+                android:padding="@dimen/space_md">
+
+                <RadioButton
+                    android:id="@+id/light_theme_choice"
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/light_theme" />
+
+                <RadioButton
+                    android:id="@+id/dark_theme_choice"
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/dark_theme" />
+
+                <RadioButton
+                    android:id="@+id/system_theme_choice"
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/system_theme" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/TextAppearance.SmartPantryManager.Section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xl"
+                android:text="@string/allergies_heading" />
+
+            <TextView
+                style="@style/TextAppearance.SmartPantryManager.Supporting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/allergies_help" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/allergy_add_input"
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_input"
+                    android:hint="@string/allergy_add_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapWords"
+                    android:minHeight="56dp"
+                    android:padding="@dimen/space_md" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/allergy_add_button"
+                    style="@style/Widget.SmartPantryManager.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_sm"
+                    android:text="@string/add_allergy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/allergy_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:background="@drawable/background_card"
+                android:orientation="vertical"
+                android:padding="@dimen/space_sm" />
+
+            <RadioGroup
+                android:id="@+id/allergy_mode_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:background="@drawable/background_card"
+                android:orientation="vertical"
+                android:padding="@dimen/space_md">
+
+                <RadioButton
+                    android:id="@+id/allergy_hide_choice"
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/allergy_hide_option" />
+
+                <RadioButton
+                    android:id="@+id/allergy_flag_choice"
+                    style="@style/TextAppearance.SmartPantryManager.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/allergy_flag_option" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/TextAppearance.SmartPantryManager.Section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xl"
+                android:text="@string/diet_heading" />
+
+            <TextView
+                style="@style/TextAppearance.SmartPantryManager.Supporting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/diet_help" />
+
+            <Spinner
+                android:id="@+id/diet_choice"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/space_sm"
+                android:background="@drawable/background_input"
+                android:entries="@array/diet_choices"
+                android:paddingStart="@dimen/space_md"
+                android:paddingEnd="@dimen/space_md" />
+
+            <EditText
+                android:id="@+id/custom_diet_input"
+                style="@style/TextAppearance.SmartPantryManager.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:background="@drawable/background_input"
+                android:hint="@string/custom_diet_hint"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords|textMultiLine"
+                android:minHeight="56dp"
+                android:padding="@dimen/space_md"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/settings_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:textColor="@color/color_error"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_back_button"
+                style="@style/Widget.SmartPantryManager.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_lg"
+                android:text="@string/save_preferences" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_surface"
+        app:itemIconTint="@color/navigation_item_tint"
+        app:itemActiveIndicatorStyle="@style/Widget.SmartPantryManager.BottomNavigation.ActiveIndicator"
+        app:itemTextColor="@color/navigation_item_tint"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation" />
+</LinearLayout>

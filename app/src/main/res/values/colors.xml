@@ -1,0 +1,13 @@
+<resources>
+    <color name="color_background">#FAF7F0</color>
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_primary">#FF8A00</color>
+    <color name="color_secondary">#F5C84C</color>
+    <color name="color_text_primary">#24211D</color>
+    <color name="color_text_secondary">#6E6860</color>
+    <color name="color_divider">#E8E0D5</color>
+    <color name="color_error">#B3261E</color>
+    <color name="color_success">#2E7D32</color>
+    <color name="color_on_primary">#FFFFFF</color>
+    <color name="navigation_indicator">#FFF0D9</color>
+</resources>

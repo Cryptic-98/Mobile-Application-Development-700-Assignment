@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <TextView
+            style="@style/TextAppearance.SmartPantryManager.Heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/diet_heading" />
+
+        <TextView
+            style="@style/TextAppearance.SmartPantryManager.Supporting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:text="@string/diet_help" />
+
+        <Spinner
+            android:id="@+id/onboarding_diet_choice"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="@dimen/space_lg"
+            android:background="@drawable/background_input"
+            android:entries="@array/diet_choices"
+            android:paddingStart="@dimen/space_md"
+            android:paddingEnd="@dimen/space_md" />
+
+        <EditText
+            android:id="@+id/onboarding_custom_diet"
+            style="@style/TextAppearance.SmartPantryManager.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm"
+            android:background="@drawable/background_input"
+            android:hint="@string/custom_diet_hint"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords|textMultiLine"
+            android:minHeight="56dp"
+            android:padding="@dimen/space_md"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/onboarding_diet_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm"
+            android:textColor="@color/color_error"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>
